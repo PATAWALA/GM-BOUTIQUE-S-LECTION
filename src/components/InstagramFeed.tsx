@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Instagram } from "lucide-react";
+import { FaInstagram } from "react-icons/fa";
 
 const shots = [
   "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&q=85&auto=format&fit=crop",
@@ -28,7 +28,7 @@ export default function InstagramFeed() {
             href="#"
             className="inline-flex items-center gap-3 h-12 px-6 rounded-full border border-[#1A1A1A]/20 text-[11px] uppercase tracking-[0.2em] hover:border-[#1A1A1A] transition self-start lg:self-end"
           >
-            <Instagram size={14} strokeWidth={1.5} />
+            <FaInstagram size={14} />
             Suivre
           </a>
         </div>
@@ -48,9 +48,8 @@ export default function InstagramFeed() {
                 className="object-cover transition-transform duration-[1200ms] group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-[#1A1A1A]/0 group-hover:bg-[#1A1A1A]/30 transition-colors flex items-center justify-center">
-                <Instagram
+                <FaInstagram
                   size={20}
-                  strokeWidth={1.5}
                   className="text-white opacity-0 group-hover:opacity-100 transition-opacity"
                 />
               </div>
