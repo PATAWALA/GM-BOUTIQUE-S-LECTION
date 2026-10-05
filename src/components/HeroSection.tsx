@@ -19,8 +19,8 @@ export default function HeroSection() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          {/* Texte */}
-          <div className="lg:col-span-6 xl:col-span-6 fade-up fade-up-2">
+          {/* Colonne texte */}
+          <div className="lg:col-span-6 fade-up fade-up-2">
             <h1 className="font-serif text-[52px] sm:text-[76px] lg:text-[88px] xl:text-[100px] leading-[0.92] font-light tracking-[-0.03em] text-[#1A1A1A] text-balance">
               L&apos;Élégance
               <br />
@@ -37,7 +37,7 @@ export default function HeroSection() {
             <div className="mt-10 flex flex-wrap items-center gap-4">
               <a
                 href="#catalogue"
-                className="group inline-flex items-center gap-3 h-12 px-6 bg-[#1A1A1A] text-[#EFECE6] rounded-full text-[11px] uppercase tracking-[0.2em] hover:bg-[#2a2a2a] transition-all"
+                className="group inline-flex items-center gap-3 h-12 px-6 bg-[#1A1A1A] text-[#EFECE6] rounded-full text-[11px] uppercase tracking-[0.2em] hover:bg-[#A8896A] transition-all"
               >
                 Explorer la sélection
                 <ArrowRight
@@ -73,54 +73,59 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Images */}
-          <div className="lg:col-span-6 xl:col-span-6 fade-up fade-up-3">
+          {/* Colonne images */}
+          <div className="lg:col-span-6 fade-up fade-up-3">
             <div className="grid grid-cols-12 gap-4 lg:gap-5">
-              <div className="col-span-8 relative aspect-[4/5] rounded-3xl overflow-hidden group">
+              {/* Grande image — Femme */}
+              <div className="col-span-8 relative aspect-[4/5] rounded-3xl overflow-hidden group bg-[#E6E1D8]">
                 <Image
-                  src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1200&q=85&auto=format&fit=crop"
+                  src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=1200&q=85&auto=format&fit=crop"
                   alt="Sélection femme"
                   fill
                   priority
                   sizes="(max-width: 1024px) 66vw, 33vw"
                   className="object-cover transition-transform duration-[1400ms] group-hover:scale-105"
                 />
-                <div className="absolute top-5 left-5 px-3 py-1.5 bg-[#EFECE6]/90 backdrop-blur-sm rounded-full text-[10px] uppercase tracking-[0.2em]">
+                <div className="absolute top-5 left-5 px-3 py-1.5 bg-[#EFECE6]/90 backdrop-blur-sm rounded-full text-[10px] uppercase tracking-[0.2em] text-[#1A1A1A]">
                   Femme
                 </div>
               </div>
 
+              {/* Colonne droite — Homme + Bio */}
               <div className="col-span-4 flex flex-col gap-4 lg:gap-5">
-                <div className="relative aspect-square rounded-3xl overflow-hidden group">
+                {/* Homme */}
+                <div className="relative aspect-square rounded-3xl overflow-hidden group bg-[#E6E1D8]">
                   <Image
-                    src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=800&q=85&auto=format&fit=crop"
-                    alt="Homme"
+                    src="https://images.unsplash.com/photo-1617137968427-85924c800a22?w=800&q=85&auto=format&fit=crop"
+                    alt="Sélection homme"
                     fill
                     priority
                     sizes="(max-width: 1024px) 33vw, 16vw"
                     className="object-cover transition-transform duration-[1400ms] group-hover:scale-105"
                   />
-                  <div className="absolute top-3 left-3 px-2.5 py-1 bg-[#EFECE6]/90 backdrop-blur-sm rounded-full text-[9px] uppercase tracking-[0.2em]">
+                  <div className="absolute top-3 left-3 px-2.5 py-1 bg-[#EFECE6]/90 backdrop-blur-sm rounded-full text-[9px] uppercase tracking-[0.2em] text-[#1A1A1A]">
                     Homme
                   </div>
                 </div>
-                <div className="relative aspect-square rounded-3xl overflow-hidden group">
+
+                {/* Bio */}
+                <div className="relative aspect-square rounded-3xl overflow-hidden group bg-[#E6E1D8]">
                   <Image
-                    src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=800&q=85&auto=format&fit=crop"
-                    alt="Bio"
+                    src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=800&q=85&auto=format&fit=crop"
+                    alt="Sélection bio"
                     fill
                     priority
                     sizes="(max-width: 1024px) 33vw, 16vw"
                     className="object-cover transition-transform duration-[1400ms] group-hover:scale-105"
                   />
-                  <div className="absolute top-3 left-3 px-2.5 py-1 bg-[#EFECE6]/90 backdrop-blur-sm rounded-full text-[9px] uppercase tracking-[0.2em]">
+                  <div className="absolute top-3 left-3 px-2.5 py-1 bg-[#EFECE6]/90 backdrop-blur-sm rounded-full text-[9px] uppercase tracking-[0.2em] text-[#1A1A1A]">
                     Bio
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Petite ligne signature */}
+            {/* Signature */}
             <div className="mt-6 flex items-center justify-between text-[10px] uppercase tracking-[0.3em] text-[#1A1A1A]/50">
               <span>© GM Agence — Lookbook 01</span>
               <span className="flex items-center gap-2">

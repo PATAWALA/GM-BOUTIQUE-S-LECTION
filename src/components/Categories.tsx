@@ -6,19 +6,19 @@ const cats = [
     name: "Homme",
     count: "120 pièces",
     image:
-      "https://images.unsplash.com/photo-1617137968427-85924c800a22?w=800&q=85&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=1000&q=85&auto=format&fit=crop",
   },
   {
     name: "Femme",
     count: "180 pièces",
     image:
-      "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=800&q=85&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=1000&q=85&auto=format&fit=crop",
   },
   {
     name: "Gamme BIO",
     count: "40 produits",
     image:
-      "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=800&q=85&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=1000&q=85&auto=format&fit=crop",
   },
 ];
 
@@ -49,7 +49,7 @@ export default function Categories() {
             <a
               key={c.name}
               href="#catalogue"
-              className="group relative rounded-3xl overflow-hidden aspect-[4/5] block"
+              className="group relative rounded-3xl overflow-hidden aspect-[4/5] block bg-[#E6E1D8]"
             >
               <Image
                 src={c.image}
@@ -58,7 +58,7 @@ export default function Categories() {
                 sizes="(max-width: 768px) 100vw, 33vw"
                 className="object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/80 via-[#1A1A1A]/10 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/85 via-[#1A1A1A]/20 to-transparent" />
 
               <div className="absolute inset-x-0 bottom-0 p-7 lg:p-9 flex items-end justify-between">
                 <div>

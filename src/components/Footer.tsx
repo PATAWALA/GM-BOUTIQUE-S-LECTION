@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Mail, MapPin, Phone } from "lucide-react";
 import {
   FaInstagram,
@@ -14,15 +15,32 @@ export default function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12">
             {/* Brand */}
             <div className="lg:col-span-5">
-              <div className="font-serif text-[22px] italic text-[#1A1A1A] mb-5">
-                GM Boutique <span className="not-italic opacity-40">&</span>{" "}
-                Sélection
+              <div className="flex items-center gap-4 mb-6">
+                <div className="relative w-14 h-14 rounded-full overflow-hidden bg-[#EFECE6] shrink-0">
+                  <Image
+                    src="/logo.jpg"
+                    alt="GM Boutique & Sélection"
+                    fill
+                    sizes="56px"
+                    className="object-cover"
+                  />
+                </div>
+                <div className="flex flex-col leading-none">
+                  <span className="font-serif text-[20px] italic text-[#1A1A1A]">
+                    GM Boutique
+                  </span>
+                  <span className="not-italic uppercase tracking-[0.24em] text-[10px] text-[#1A1A1A]/50 mt-1.5">
+                    & Sélection
+                  </span>
+                </div>
               </div>
+
               <p className="text-[13px] leading-relaxed text-[#1A1A1A]/60 max-w-sm mb-8">
                 Event &amp; Boutique. Une sélection exigeante de pièces
                 vestimentaires, accessoires et soins bio. Kinshasa — En ligne,
                 partout.
               </p>
+
               <div className="flex items-center gap-2">
                 {[
                   { Icon: FaInstagram, href: "#", label: "Instagram" },
@@ -65,24 +83,21 @@ export default function Footer() {
               </ul>
             </div>
 
-            {/* Help */}
+            {/* Aide */}
             <div className="lg:col-span-2">
               <div className="text-[10px] uppercase tracking-[0.3em] text-[#1A1A1A]/50 mb-5">
                 Aide
               </div>
               <ul className="space-y-3 text-[13px] text-[#1A1A1A]/70">
-                {[
-                  "Livraison",
-                  "Retours",
-                  "Guide des tailles",
-                  "FAQ",
-                ].map((item) => (
-                  <li key={item}>
-                    <a href="#" className="hover:text-[#1A1A1A] transition">
-                      {item}
-                    </a>
-                  </li>
-                ))}
+                {["Livraison", "Retours", "Guide des tailles", "FAQ"].map(
+                  (item) => (
+                    <li key={item}>
+                      <a href="#" className="hover:text-[#1A1A1A] transition">
+                        {item}
+                      </a>
+                    </li>
+                  )
+                )}
               </ul>
             </div>
 
@@ -93,15 +108,27 @@ export default function Footer() {
               </div>
               <ul className="space-y-4 text-[13px] text-[#1A1A1A]/70">
                 <li className="flex items-start gap-3">
-                  <MapPin size={14} strokeWidth={1.5} className="mt-0.5 shrink-0" />
+                  <MapPin
+                    size={14}
+                    strokeWidth={1.5}
+                    className="mt-0.5 shrink-0"
+                  />
                   <span>Kinshasa, RDC</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <Phone size={14} strokeWidth={1.5} className="mt-0.5 shrink-0" />
+                  <Phone
+                    size={14}
+                    strokeWidth={1.5}
+                    className="mt-0.5 shrink-0"
+                  />
                   <span>+243 900 000 000</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <Mail size={14} strokeWidth={1.5} className="mt-0.5 shrink-0" />
+                  <Mail
+                    size={14}
+                    strokeWidth={1.5}
+                    className="mt-0.5 shrink-0"
+                  />
                   <span>contact@gmagence.com</span>
                 </li>
               </ul>

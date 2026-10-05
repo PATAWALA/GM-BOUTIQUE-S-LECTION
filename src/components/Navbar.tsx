@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { ShoppingBag, Menu, X, Search } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useCart } from "@/context/CartContext";
@@ -35,7 +36,7 @@ export default function Navbar() {
       >
         <div className="max-w-[1600px] mx-auto px-4 lg:px-8">
           <div
-            className={`flex items-center justify-between gap-6 px-5 lg:px-8 h-14 rounded-full border transition-all duration-500 ${
+            className={`flex items-center justify-between gap-6 px-5 lg:px-8 h-16 rounded-full border transition-all duration-500 ${
               scrolled
                 ? "bg-[#EFECE6]/85 backdrop-blur-xl border-[#1A1A1A]/10 shadow-[0_10px_40px_-20px_rgba(26,26,26,0.25)]"
                 : "bg-transparent border-transparent"
@@ -44,11 +45,26 @@ export default function Navbar() {
             {/* Logo */}
             <button
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              className="font-serif text-[15px] tracking-wide text-[#1A1A1A] italic whitespace-nowrap"
+              className="flex items-center gap-3 shrink-0"
+              aria-label="GM Boutique & Sélection — Accueil"
             >
-              GM Boutique <span className="not-italic opacity-40">&</span>{" "}
-              <span className="not-italic uppercase tracking-[0.15em] text-[12px]">
-                Sélection
+              <div className="relative w-10 h-10 rounded-full overflow-hidden bg-[#E6E1D8]">
+                <Image
+                  src="/logo.jpg"
+                  alt="GM Boutique & Sélection"
+                  fill
+                  priority
+                  sizes="40px"
+                  className="object-cover"
+                />
+              </div>
+              <span className="hidden sm:flex flex-col leading-none text-left">
+                <span className="font-serif text-[15px] italic text-[#1A1A1A] tracking-wide">
+                  GM Boutique
+                </span>
+                <span className="not-italic uppercase tracking-[0.22em] text-[9px] text-[#1A1A1A]/50 mt-1">
+                  Sélection
+                </span>
               </span>
             </button>
 
@@ -66,7 +82,7 @@ export default function Navbar() {
             </nav>
 
             {/* Actions */}
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 shrink-0">
               <button
                 aria-label="Recherche"
                 className="hidden sm:flex w-9 h-9 items-center justify-center rounded-full hover:bg-[#1A1A1A]/5 transition text-[#1A1A1A]/70 hover:text-[#1A1A1A]"
@@ -108,7 +124,7 @@ export default function Navbar() {
             : "pointer-events-none opacity-0"
         }`}
       >
-        <div className="pt-24 px-4">
+        <div className="pt-28 px-4">
           <div className="bg-[#EFECE6] border border-[#1A1A1A]/10 rounded-3xl p-6 shadow-[0_20px_60px_-30px_rgba(26,26,26,0.4)]">
             <div className="flex flex-col gap-1">
               {categories.map((cat) => (
