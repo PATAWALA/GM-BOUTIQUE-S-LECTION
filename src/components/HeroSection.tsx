@@ -1,66 +1,133 @@
 import Image from "next/image";
+import { ArrowRight, Star } from "lucide-react";
 
 export default function HeroSection() {
   return (
-    <section className="pt-16 border-b border-[#1A1A1A]/15">
-      <div className="max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-2 min-h-[88vh]">
-        {/* Texte */}
-        <div className="flex flex-col justify-between p-8 lg:p-14 border-b lg:border-b-0 lg:border-r border-[#1A1A1A]/15">
-          <div className="flex items-center gap-3 text-[10px] uppercase tracking-[0.35em] text-[#1A1A1A]/60">
-            <span className="w-8 h-px bg-[#1A1A1A]/40" />
-            Édition 2025 — Kinshasa / En ligne
-          </div>
+    <section className="pt-32 lg:pt-36 pb-12 lg:pb-20">
+      <div className="max-w-[1600px] mx-auto px-4 lg:px-8">
+        {/* Bandeau meta */}
+        <div className="flex items-center justify-between text-[10px] uppercase tracking-[0.3em] text-[#1A1A1A]/50 mb-10 lg:mb-14 fade-up fade-up-1">
+          <span className="flex items-center gap-3">
+            <span className="w-8 h-px bg-[#1A1A1A]/30" />
+            Édition — Automne 2025
+          </span>
+          <span className="hidden md:block">Vol. 01 — Kinshasa · En ligne</span>
+          <span className="hidden md:flex items-center gap-2">
+            <Star size={11} fill="#1A1A1A" strokeWidth={0} />
+            4.9 / 5 — 240+ clients
+          </span>
+        </div>
 
-          <div className="py-12">
-            <h1 className="text-[42px] sm:text-[58px] lg:text-[72px] leading-[0.95] font-light tracking-[-0.02em] text-[#1A1A1A]">
-              L&apos;Élégance <span className="italic font-serif opacity-60">&</span>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          {/* Texte */}
+          <div className="lg:col-span-6 xl:col-span-6 fade-up fade-up-2">
+            <h1 className="font-serif text-[52px] sm:text-[76px] lg:text-[88px] xl:text-[100px] leading-[0.92] font-light tracking-[-0.03em] text-[#1A1A1A] text-balance">
+              L&apos;Élégance
               <br />
-              Le Soin
-              <br />
-              Redéfinis.
+              <span className="italic opacity-70">et</span> le soin{" "}
+              <span className="italic text-[#A8896A]">redéfinis.</span>
             </h1>
 
-            <p className="mt-8 max-w-md text-[14px] leading-relaxed text-[#1A1A1A]/70">
-              Sélection exclusive de vêtements, accessoires et soins bio.
-              Chaque pièce est choisie avec exigence pour habiller
-              l&apos;essentiel — et révéler ce qui compte.
+            <p className="mt-8 max-w-lg text-[14px] leading-relaxed text-[#1A1A1A]/65">
+              Une sélection exclusive de vêtements, d&apos;accessoires et de
+              soins bio. Chaque pièce est choisie avec exigence — pour
+              habiller l&apos;essentiel et révéler ce qui compte vraiment.
             </p>
 
-            <div className="mt-10 flex flex-wrap items-center gap-8">
+            <div className="mt-10 flex flex-wrap items-center gap-4">
               <a
                 href="#catalogue"
-                className="text-[11px] uppercase tracking-[0.28em] text-[#1A1A1A] underline underline-offset-4 decoration-[1px]"
+                className="group inline-flex items-center gap-3 h-12 px-6 bg-[#1A1A1A] text-[#EFECE6] rounded-full text-[11px] uppercase tracking-[0.2em] hover:bg-[#2a2a2a] transition-all"
               >
                 Explorer la sélection
+                <ArrowRight
+                  size={14}
+                  strokeWidth={1.5}
+                  className="transition-transform group-hover:translate-x-1"
+                />
               </a>
               <a
                 href="#catalogue"
-                className="text-[11px] uppercase tracking-[0.28em] text-[#1A1A1A]/70 hover:text-[#1A1A1A] transition"
+                className="inline-flex items-center gap-3 h-12 px-6 rounded-full border border-[#1A1A1A]/20 text-[11px] uppercase tracking-[0.2em] text-[#1A1A1A] hover:border-[#1A1A1A] hover:bg-[#1A1A1A]/5 transition-all"
               >
-                → Gamme BIO
+                Gamme BIO
               </a>
+            </div>
+
+            {/* Stats */}
+            <div className="mt-14 grid grid-cols-3 gap-6 max-w-md">
+              {[
+                { n: "500+", l: "Pièces sélectionnées" },
+                { n: "24h", l: "Livraison Kinshasa" },
+                { n: "100%", l: "Bio · Naturel" },
+              ].map((s) => (
+                <div key={s.l}>
+                  <div className="font-serif text-[26px] leading-none text-[#1A1A1A]">
+                    {s.n}
+                  </div>
+                  <div className="mt-2 text-[10px] uppercase tracking-[0.2em] text-[#1A1A1A]/50 leading-tight">
+                    {s.l}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 
-          <div className="flex items-center justify-between text-[10px] uppercase tracking-[0.3em] text-[#1A1A1A]/50">
-            <span>Homme · Femme · Bio</span>
-            <span>01 / 03</span>
-          </div>
-        </div>
+          {/* Images */}
+          <div className="lg:col-span-6 xl:col-span-6 fade-up fade-up-3">
+            <div className="grid grid-cols-12 gap-4 lg:gap-5">
+              <div className="col-span-8 relative aspect-[4/5] rounded-3xl overflow-hidden group">
+                <Image
+                  src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1200&q=85&auto=format&fit=crop"
+                  alt="Sélection femme"
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 66vw, 33vw"
+                  className="object-cover transition-transform duration-[1400ms] group-hover:scale-105"
+                />
+                <div className="absolute top-5 left-5 px-3 py-1.5 bg-[#EFECE6]/90 backdrop-blur-sm rounded-full text-[10px] uppercase tracking-[0.2em]">
+                  Femme
+                </div>
+              </div>
 
-        {/* Image */}
-        <div className="relative aspect-[4/5] lg:aspect-auto lg:min-h-[88vh]">
-          <Image
-            src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1400&q=85&auto=format&fit=crop"
-            alt="Sélection GM Boutique"
-            fill
-            priority
-            sizes="(max-width: 1024px) 100vw, 50vw"
-            className="object-cover"
-          />
-          <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between text-[10px] uppercase tracking-[0.3em] text-white mix-blend-difference">
-            <span>Lookbook 01</span>
-            <span>GM Agence</span>
+              <div className="col-span-4 flex flex-col gap-4 lg:gap-5">
+                <div className="relative aspect-square rounded-3xl overflow-hidden group">
+                  <Image
+                    src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=800&q=85&auto=format&fit=crop"
+                    alt="Homme"
+                    fill
+                    priority
+                    sizes="(max-width: 1024px) 33vw, 16vw"
+                    className="object-cover transition-transform duration-[1400ms] group-hover:scale-105"
+                  />
+                  <div className="absolute top-3 left-3 px-2.5 py-1 bg-[#EFECE6]/90 backdrop-blur-sm rounded-full text-[9px] uppercase tracking-[0.2em]">
+                    Homme
+                  </div>
+                </div>
+                <div className="relative aspect-square rounded-3xl overflow-hidden group">
+                  <Image
+                    src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=800&q=85&auto=format&fit=crop"
+                    alt="Bio"
+                    fill
+                    priority
+                    sizes="(max-width: 1024px) 33vw, 16vw"
+                    className="object-cover transition-transform duration-[1400ms] group-hover:scale-105"
+                  />
+                  <div className="absolute top-3 left-3 px-2.5 py-1 bg-[#EFECE6]/90 backdrop-blur-sm rounded-full text-[9px] uppercase tracking-[0.2em]">
+                    Bio
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Petite ligne signature */}
+            <div className="mt-6 flex items-center justify-between text-[10px] uppercase tracking-[0.3em] text-[#1A1A1A]/50">
+              <span>© GM Agence — Lookbook 01</span>
+              <span className="flex items-center gap-2">
+                <span className="w-8 h-px bg-[#1A1A1A]/30" />
+                Fait avec soin
+              </span>
+            </div>
           </div>
         </div>
       </div>

@@ -22,12 +22,16 @@ interface CartContextValue {
   clearCart: () => void;
   total: number;
   count: number;
+  isOpen: boolean;
+  openCart: () => void;
+  closeCart: () => void;
 }
 
 const CartContext = createContext<CartContextValue | null>(null);
 
 export function CartProvider({ children }: { children: ReactNode }) {
   const [items, setItems] = useState<CartItem[]>([]);
+  const [isOpen, setIsOpen] = useState(false);
 
   const addItem = useCallback((product: Product) => {
     setItems((prev) => {
@@ -39,6 +43,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
       }
       return [...prev, { ...product, quantity: 1 }];
     });
+    setIsOpen(true);
   }, []);
 
   const removeItem = useCallback((id: string) => {
@@ -59,14 +64,15 @@ export function CartProvider({ children }: { children: ReactNode }) {
   );
 
   const clearCart = useCallback(() => setItems([]), []);
+  const openCart = useCallback(() => setIsOpen(true), []);
+  const closeCart = useCallback(() => setIsOpen(false), []);
 
   const total = useMemo(
-    () => items.reduce((sum, i) => sum + i.price * i.quantity, 0),
+    () => items.reduce((s, i) => s + i.price * i.quantity, 0),
     [items]
   );
-
   const count = useMemo(
-    () => items.reduce((sum, i) => sum + i.quantity, 0),
+    () => items.reduce((s, i) => s + i.quantity, 0),
     [items]
   );
 
@@ -79,8 +85,22 @@ export function CartProvider({ children }: { children: ReactNode }) {
       clearCart,
       total,
       count,
+      isOpen,
+      openCart,
+      closeCart,
     }),
-    [items, addItem, removeItem, updateQuantity, clearCart, total, count]
+    [
+      items,
+      addItem,
+      removeItem,
+      updateQuantity,
+      clearCart,
+      total,
+      count,
+      isOpen,
+      openCart,
+      closeCart,
+    ]
   );
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
